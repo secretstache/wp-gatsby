@@ -8,6 +8,7 @@ const IndexPage = ({ data }) => {
       {data.posts.edges.map(({ node }) => (
         <div key={node.id}>
           <Link to={node.slug}>{node.title}</Link>
+          <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
         </div>
       ))}
     </div>
