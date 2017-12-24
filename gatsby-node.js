@@ -17,11 +17,11 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `).then(result => {
-      result.data.allWordpressPost.edges.map(({ node }) => {
+    `).then(({ data }) => {
+      data.allWordpressPost.edges.map(({ node }) => {
         createPage({
           path: node.slug,
-          component: path.resolve('./src/pages/post.js'),
+          component: path.resolve('./src/templates/post.js'),
           context: {
             slug: node.slug
           }
