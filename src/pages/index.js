@@ -1,14 +1,17 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { Card } from 'antd'
 
 const IndexPage = ({ data }) => {
   return (
     <div>
       {data.posts.edges.map(({ node }) => (
-        <div key={node.id}>
-          <Link to={node.slug}>{node.title}</Link>
+        <Card key={node.id} style={{ marginBottom: '18px' }}>
+          <h2>
+            <Link to={node.slug}>{node.title}</Link>
+          </h2>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-        </div>
+        </Card>
       ))}
     </div>
   )

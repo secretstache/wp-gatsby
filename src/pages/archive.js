@@ -1,17 +1,19 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import { List } from 'antd'
 
 export default ({ data }) => {
   return (
-    <div>
-      {data.posts.edges.map(({ node }) => {
-        return (
-          <div>
-            <Link to={node.slug}>{node.title}</Link>
-          </div>
-        )
-      })}
-    </div>
+    <List
+      itemLayout="horizontal"
+      dataSource={data.posts.edges}
+      bordered
+      renderItem={({ node }) => (
+        <List.Item>
+          <Link to={node.slug}>{node.title}</Link>
+        </List.Item>
+      )}
+    />
   )
 }
 

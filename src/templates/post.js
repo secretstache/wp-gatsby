@@ -1,11 +1,12 @@
 import React from 'react'
+import { Card } from 'antd'
 
 export default ({ data }) => {
   return (
-    <div>
+    <Card>
       <h1>{data.post.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: data.post.content }} />
-    </div>
+    </Card>
   )
 }
 

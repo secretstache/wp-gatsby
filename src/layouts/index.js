@@ -2,41 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
+import { Layout, Menu, BackTop } from 'antd'
 
-import './index.css'
+import 'antd/dist/antd.css'
 
-const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
-    </div>
-
-    <Link to="/archive" style={{ color: 'white' }}>
-      Archive
-    </Link>
-  </div>
-)
+const { Header, Content, Footer } = Layout
 
 const TemplateWrapper = ({ children }) => (
   <div>
@@ -47,17 +17,29 @@ const TemplateWrapper = ({ children }) => (
         { name: 'keywords', content: 'sample, something' }
       ]}
     />
-    <Header />
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '0px 1.0875rem 1.45rem',
-        paddingTop: 0
-      }}
-    >
-      {children()}
-    </div>
+    <Layout>
+      <Header>
+        <Link
+          to="/"
+          style={{
+            float: 'left',
+            height: '31px',
+            marginRight: '60px'
+          }}
+        >
+          SSM Gatsby Demo
+        </Link>
+        <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px' }}>
+          <Menu.Item key="archive">Archive</Menu.Item>
+        </Menu>
+      </Header>
+      <Content style={{ padding: '40px' }}>{children()}</Content>
+      <Footer style={{ textAlign: 'center' }}>
+        <p>Footer goes here</p>
+      </Footer>
+    </Layout>
+
+    <BackTop />
   </div>
 )
 
