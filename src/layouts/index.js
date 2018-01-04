@@ -30,7 +30,9 @@ const TemplateWrapper = ({ children }) => (
           SSM Gatsby Demo
         </Link>
         <Menu theme="dark" mode="horizontal" style={{ lineHeight: '64px' }}>
-          <Menu.Item key="archive">Archive</Menu.Item>
+          <Menu.Item key="archive">
+            <Link to="/archive">Archive</Link>
+          </Menu.Item>
         </Menu>
       </Header>
       <Content style={{ padding: '40px' }}>{children()}</Content>

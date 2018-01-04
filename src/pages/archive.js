@@ -9,7 +9,7 @@ export default ({ data }) => {
       dataSource={data.posts.edges}
       bordered
       renderItem={({ node }) => (
-        <List.Item>
+        <List.Item style={{ backgroundColor: 'white' }}>
           <Link to={node.slug}>{node.title}</Link>
         </List.Item>
       )}
